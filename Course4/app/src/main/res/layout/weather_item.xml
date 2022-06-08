@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.example.course4.ActionCallback" />
+
+        <variable
+            name="weather"
+            type="com.example.course4.bean.Weather" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="4dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="5dp"
+        app:contentPadding="8dp"
+        tools:ignore="RtlHardcoded">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/item_tv_province"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_headline_small"
+                android:text="@{weather.province}"
+                tools:text="省份" />
+
+            <TextView
+                android:id="@+id/item_tv_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_toEndOf="@id/item_tv_province"
+                tools:text="城市"
+                android:text="@{weather.city}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_headline_small" />
+
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="@string/content_description_default"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/item_tv_publish_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@id/item_tv_province"
+                tools:text="2022-10-19"
+                android:text="@{weather.time}"
+                android:textColor="@color/textColorDarkerGray"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_caption_small" />
+
+            <TextView
+                android:id="@+id/item_tv_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/item_tv_publish_time"
+                android:layout_alignStart="@id/item_tv_province"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_body"
+                android:text="@{weather.weather}"
+                tools:text="多云转晴" />
+
+            <TextView
+                android:id="@+id/item_tv_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/item_tv_weather"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/item_tv_weather"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_caption"
+                android:text="@{weather.wind}"
+                tools:text="微风" />
+
+            <TextView
+                android:id="@+id/item_tv_max_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/item_tv_weather"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/item_tv_wind"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_caption"
+                android:text="@{weather.maxTemp}"
+                tools:text="30" />
+
+            <TextView
+                android:id="@+id/item_tv_mid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/item_tv_weather"
+                android:layout_toRightOf="@id/item_tv_max_temp"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_caption"
+                android:text="°C - " />
+
+            <TextView
+                android:id="@+id/item_tv_min_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/item_tv_weather"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/item_tv_mid"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_caption"
+                android:text="@{weather.minTemp}"
+                tools:text="20" />
+
+            <TextView
+                android:id="@+id/item_tv_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/item_tv_weather"
+                android:layout_toRightOf="@id/item_tv_min_temp"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/text_size_caption"
+                android:text="°C" />
+
+            <ImageButton
+                android:id="@+id/item_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="@null"
+                android:src="@android:drawable/ic_menu_more" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
